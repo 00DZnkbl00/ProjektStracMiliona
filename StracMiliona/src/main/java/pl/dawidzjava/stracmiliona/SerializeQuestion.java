@@ -10,6 +10,8 @@ public class SerializeQuestion {
         Question question=new Question("Test?","NO", "NO", "YES", "NO", 0, 3);
         addQuestion(question);
         addQuestion(new Question("Test!","YES", "NO", "NO", "NO", 0, 1));
+        addQuestion(new Question("Test!?","NO", "YES", "NO", "NO", 0, 2));
+        addQuestion(new Question("Test?!","NO", "NO", "NO", "YES", 0, 4));
     }
 
     //USED: https://reintech.io/blog/java-serialization-saving-restoring-objects-to-from-disk

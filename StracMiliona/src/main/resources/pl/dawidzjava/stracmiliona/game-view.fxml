@@ -2,14 +2,45 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.dawidzjava.stracmiliona.GameController">
-   <children>
-      <Label fx:id="testLabel" layoutX="91.0" layoutY="136.0" prefHeight="75.0" prefWidth="428.0" textAlignment="CENTER">
-         <font>
-            <Font size="30.0" />
-         </font></Label>
-      <Button layoutX="274.0" layoutY="262.0" mnemonicParsing="false" onAction="#onTestButtonAction" text="Button" />
-   </children>
-</AnchorPane>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.dawidzjava.stracmiliona.GameController">
+   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="600.0">
+      <children>
+         <Button layoutX="274.0" layoutY="486.0" mnemonicParsing="false" onAction="#onTestButtonAction" text="Button" />
+         <HBox alignment="CENTER" layoutX="61.0" layoutY="347.0">
+            <children>
+               <Button mnemonicParsing="false" onAction="#onPlusButtonClick" text="+" />
+               <Label text="0000000" fx:id="screen1"/>
+               <Button mnemonicParsing="false" onAction="#onMinusButtonClick" text="-" />
+            </children>
+         </HBox>
+         <HBox alignment="CENTER" layoutX="191.0" layoutY="347.0">
+            <children>
+               <Button mnemonicParsing="false" onAction="#onPlusButtonClick" text="+" />
+               <Label text="0000000" fx:id="screen2"/>
+               <Button mnemonicParsing="false" onAction="#onMinusButtonClick" text="-" />
+            </children>
+         </HBox>
+         <HBox alignment="CENTER" layoutX="326.0" layoutY="347.0">
+            <children>
+               <Button mnemonicParsing="false" onAction="#onPlusButtonClick" text="+" />
+               <Label text="0000000" fx:id="screen3"/>
+               <Button mnemonicParsing="false" onAction="#onMinusButtonClick" text="-" />
+            </children>
+         </HBox>
+         <HBox alignment="CENTER" layoutX="450.0" layoutY="347.0">
+            <children>
+               <Button mnemonicParsing="false" onAction="#onPlusButtonClick" text="+" />
+               <Label text="0000000" fx:id="screen4"/>
+               <Button mnemonicParsing="false" onAction="#onMinusButtonClick" text="-" />
+            </children>
+         </HBox>
+         <Label fx:id="moneyToDivideLabel" layoutX="277.0" layoutY="447.0" text="1000000" />
+         
+
+      </children></AnchorPane>
+   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="300.0">
+      <children>
+         <Label fx:id="gameShowHost" layoutX="26.0" layoutY="52.0" prefHeight="17.0" prefWidth="147.0" text="Label" textAlignment="CENTER" wrapText="true" />
+      </children></AnchorPane>
+</HBox>
