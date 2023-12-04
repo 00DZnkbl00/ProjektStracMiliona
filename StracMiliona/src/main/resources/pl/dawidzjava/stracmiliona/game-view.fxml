@@ -6,10 +6,10 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.dawidzjava.stracmiliona.GameController">
    <children>
-      <Label layoutX="259.0" layoutY="136.0" prefHeight="82.0" prefWidth="112.0" text="Test" fx:id="testLabel">
+      <Label fx:id="testLabel" layoutX="91.0" layoutY="136.0" prefHeight="75.0" prefWidth="428.0" textAlignment="CENTER">
          <font>
-            <Font size="40.0" />
+            <Font size="30.0" />
          </font></Label>
-      <Button layoutX="274.0" layoutY="262.0" mnemonicParsing="false" text="Button" onAction="#onTestButtonAction" />
+      <Button layoutX="274.0" layoutY="262.0" mnemonicParsing="false" onAction="#onTestButtonAction" text="Button" />
    </children>
 </AnchorPane>
