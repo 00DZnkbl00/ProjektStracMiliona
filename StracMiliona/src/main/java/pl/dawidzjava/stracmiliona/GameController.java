@@ -10,26 +10,23 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloController {
+public class GameController {
     @FXML
-    private Label welcomeText;
+    private Label testLabel;
 
     @FXML
-    protected void onHelloButtonClick(ActionEvent event) throws IOException {
+    protected void onTestButtonAction(ActionEvent event) throws IOException {
         loadNewScene();
         ((Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow()).close();
     }
 
-    protected void setWelcomeText(String text){
-        this.welcomeText.setText(text);
-    }
 
     public void loadNewScene() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
 
-        GameController gameController = loader.getController();
-        gameController.setWelcomeText("POLONEZA CZAS ZACZĄĆ");
+        HelloController helloController = loader.getController();
+        helloController.setWelcomeText("UDAŁO SIĘ");
 
         Stage stage = new Stage();
         stage.setTitle("Strać Miliona !");
@@ -37,5 +34,7 @@ public class HelloController {
         stage.show();
     }
 
-
+    protected void setWelcomeText(String text){
+        this.testLabel.setText(text);
+    }
 }
