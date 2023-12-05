@@ -26,8 +26,20 @@ public class GameController {
     public Label screen3;
     @FXML
     public Label screen4;
+    @FXML
+    public Label anws1;
+    @FXML
+    public Label anws2;
+    @FXML
+    public Label anws3;
+    @FXML
+    public Label anws4;
+    @FXML
+    public Button applyButton;
+    @FXML
+    public Button nextButton;
 
-    private int moneyToDivide=1_000_000;
+    private Game game;
 
     @FXML
     protected void onTestButtonAction(ActionEvent event) throws IOException {
@@ -36,36 +48,82 @@ public class GameController {
     }
 
     @FXML
-    public void onPlusButtonClick(ActionEvent event){
-        changeOptionValue(event,25_000);
+    public void onPlusButtonClick(ActionEvent event) {
+        changeOptionValue(event, true);
     }
 
     @FXML
-    public void onMinusButtonClick(ActionEvent event){
-        changeOptionValue(event,-25_000);
+    public void onMinusButtonClick(ActionEvent event) {
+        changeOptionValue(event, false);
     }
 
-    private void changeOptionValue(ActionEvent event,int changeValue){
-        Button button=(Button) event.getSource();
+    @FXML
+    public void onNextButtonClick(){
+        game.loadNewQuestion();
+        String[] questions=game.getActiveQuestionList();
+        gameShowHost.setText("Twoje pytanie: \n"+ game.getActiveQuestionString());
+        anws1.setText(questions[0]);
+        anws2.setText(questions[1]);
+        anws3.setText(questions[2]);
+        anws4.setText(questions[3]);
+        nextButton.setDisable(true);
+    }
+
+    @FXML
+    public void onApplyButtonClick() {
+        if (game.isActiveQuestionNull())return;
+        int result=game.checkAnswer();
+
+        if (result==1){
+            nextButton.setDisable(true);
+            gameShowHost.setText("Gratulację " + game.getPlayerName()+"\n" +
+                    "Wygrałeś: "+game.getMoneyToDivide()+"\n"+
+                    "Kliknij \"Wyjdź\" aby powrócić do menu");
+        }
+        else if (result==-1){
+            nextButton.setDisable(true);
+            gameShowHost.setText("Wielka szkoda " + game.getPlayerName()+"\n" +
+                    "Może następnym razem ci się uda \n"+
+                    "Kliknij \"Wyjdź\" aby powrócić do menu");
+        }
+        else {
+            nextButton.setDisable(false);
+            gameShowHost.setText("Zostało ci : "+game.getMoneyToDivide()+"\n"+
+                    "Kliknij \"Dalej\" aby otrzymać kolejne pytanie");
+        }
+
+        moneyToDivideLabel.setText(String.valueOf(game.getMoneyToDivide()));
+        applyButton.setDisable(true);
+
+        screen1.setText("0");
+        screen2.setText("0");
+        screen3.setText("0");
+        screen4.setText("0");
+    }
+    private void changeOptionValue(ActionEvent event, boolean isPlusButton) {
+        Button button = (Button) event.getSource();
         ObservableList<Node> children = button.getParent().getChildrenUnmodifiable();
         Label label = (Label) children.get(1);
-        int value=Integer.parseInt(label.getText());
-        if (moneyToDivide-changeValue<0||moneyToDivide-changeValue>1_000_000) return;
-        if (value+changeValue<0)return;
-        if (!isOneScreenZero(label))return;
-        value+=changeValue;
-        moneyToDivide-=changeValue;
-        moneyToDivideLabel.setText(String.valueOf(moneyToDivide));
+        int value;
+        if ("screen1".equals(label.getId()))
+            value = game.changeDoorValue(1, isPlusButton);
+        else if ("screen2".equals(label.getId()))
+            value = game.changeDoorValue(2, isPlusButton);
+        else if ("screen3".equals(label.getId()))
+            value = game.changeDoorValue(3, isPlusButton);
+        else if ("screen4".equals(label.getId()))
+            value = game.changeDoorValue(4, isPlusButton);
+        else value = -1;
+
+        if (value == -1) return;
+
+        moneyToDivideLabel.setText(String.valueOf(game.getMoneyToDivide()));
         label.setText(String.valueOf(value));
 
-    }
+        if (game.getMoneyToDivide() == 0&&!game.isActiveQuestionNull())
+            applyButton.setDisable(false);
+        else applyButton.setDisable(true);
 
-    private boolean isOneScreenZero(Label label){
-        if (label!=screen1&&Integer.parseInt(screen1.getText())==0)return true;
-        if (label!=screen2&&Integer.parseInt(screen2.getText())==0)return true;
-        if (label!=screen3&&Integer.parseInt(screen3.getText())==0)return true;
-        if (label!=screen4&&Integer.parseInt(screen4.getText())==0)return true;
-        return false;
     }
 
 
@@ -78,13 +136,15 @@ public class GameController {
 
         Stage stage = new Stage();
         stage.setTitle("Strać Miliona !");
+        stage.setResizable(false);
         stage.setScene(new Scene(root));
         stage.show();
     }
 
 
-
-    protected void setWelcomeText(String text){
-        this.gameShowHost.setText(text);
+    protected void setGameProperties(Game game) {
+        gameShowHost.setText(game.getPlayerName() + " witaj w naszej grze!!!!\n" +
+                "Kliknij \"Dalej\" aby otrzymać pierwsze pytanie");
+        this.game = game;
     }
 }
