@@ -4,11 +4,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="240.0" prefWidth="320.0" spacing="20.0" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.dawidzjava.stracmiliona.HelloController" styleClass="root">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-  </padding>
+<VBox alignment="CENTER" prefHeight="240.0" prefWidth="320.0" spacing="20.0" stylesheets="@static/style.css"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pl.dawidzjava.stracmiliona.HelloController" styleClass="root">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
 
-  <Label fx:id="welcomeText" styleClass="titleLabel" text="Strać miliona!" />
-  <Button onAction="#onHelloButtonClick" text="Start" styleClass="normalButton" />
+    <Label fx:id="welcomeText" styleClass="titleLabel" text="Strać miliona!"/>
+    <Button onAction="#onHelloButtonClick" text="Start" styleClass="normalButton"/>
 </VBox>

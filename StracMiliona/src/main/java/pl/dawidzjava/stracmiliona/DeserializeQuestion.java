@@ -10,40 +10,40 @@ import java.util.List;
 
 public class DeserializeQuestion {
 
-    private  String folderName;
+    private String folderName;
 
     public DeserializeQuestion(String folderName) {
         this.folderName = folderName;
     }
 
-    public   List<Question> getQuestions(){
-        String[] files=getFileList(folderName);
-        List<Question> questions=new ArrayList<>();
+    public List<Question> getQuestions() {
+        String[] files = getFileList(folderName);
+        List<Question> questions = new ArrayList<>();
         for (String fileName : files) {
-            Question temp=deserializeQuestion(fileName);
-            if (temp !=null) questions.add(temp);
+            Question temp = deserializeQuestion(fileName);
+            if (temp != null) questions.add(temp);
         }
         if (questions.isEmpty()) {
             return null;
-        }
-        else return questions;
+        } else return questions;
     }
-    private  String[] getFileList(String folderName){
-        File file=new File(folderName);
+
+    private String[] getFileList(String folderName) {
+        File file = new File(folderName);
         return file.list();
     }
 
     //USED: https://reintech.io/blog/java-serialization-saving-restoring-objects-to-from-disk
-    private Question  deserializeQuestion(String fileName){
-        Question question=null;
+    private Question deserializeQuestion(String fileName) {
+        Question question = null;
         try {
-            FileInputStream fileIn = new FileInputStream(folderName+fileName);
+            FileInputStream fileIn = new FileInputStream(folderName + fileName);
             ObjectInputStream in = new ObjectInputStream(fileIn);
             question = (Question) in.readObject();
             in.close();
             fileIn.close();
         } catch (IOException | ClassNotFoundException i) {
-            System.out.println("Nie wczytano pliku: "+fileName+"\npowód: "+i.getMessage());
+            System.out.println("Nie wczytano pliku: " + fileName + "\npowód: " + i.getMessage());
             return null;
         }
         return question;

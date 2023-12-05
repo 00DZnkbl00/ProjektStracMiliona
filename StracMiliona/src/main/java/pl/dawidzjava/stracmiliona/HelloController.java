@@ -23,7 +23,7 @@ public class HelloController {
         welcomeText.setText("NIe udało się załadować gry :-(");
     }
 
-    protected void setWelcomeText(String text){
+    protected void setWelcomeText(String text) {
         this.welcomeText.setText(text);
     }
 
@@ -31,20 +31,19 @@ public class HelloController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
         Parent root = loader.load();
 
-        DeserializeQuestion deserializeQuestion=new DeserializeQuestion("src/main/resources/questions/");
-        List<Question> questions=deserializeQuestion.getQuestions();
-        if (questions!=null){
+        DeserializeQuestion deserializeQuestion = new DeserializeQuestion("src/main/resources/questions/");
+        List<Question> questions = deserializeQuestion.getQuestions();
+        if (questions != null) {
             for (Question question : questions) {
                 System.out.println(question);
             }
-        }
-        else {
+        } else {
             System.out.println("Folder jest pusty");
             return false;
         }
 
-        Game game=new Game(questions, 4, "Tadek");
-        if (4>questions.size())return false;
+        Game game = new Game(questions, 4, "Tadek");
+        if (4 > questions.size()) return false;
 
         GameController gameController = loader.getController();
         gameController.setGameProperties(game);

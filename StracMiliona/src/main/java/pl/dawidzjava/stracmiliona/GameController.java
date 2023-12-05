@@ -58,10 +58,10 @@ public class GameController {
     }
 
     @FXML
-    public void onNextButtonClick(){
+    public void onNextButtonClick() {
         game.loadNewQuestion();
-        String[] questions=game.getActiveQuestionList();
-        gameShowHost.setText("Twoje pytanie: \n"+ game.getActiveQuestionString());
+        String[] questions = game.getActiveQuestionList();
+        gameShowHost.setText("Twoje pytanie: \n" + game.getActiveQuestionString());
         anws1.setText(questions[0]);
         anws2.setText(questions[1]);
         anws3.setText(questions[2]);
@@ -71,24 +71,22 @@ public class GameController {
 
     @FXML
     public void onApplyButtonClick() {
-        if (game.isActiveQuestionNull())return;
-        int result=game.checkAnswer();
+        if (game.isActiveQuestionNull()) return;
+        int result = game.checkAnswer();
 
-        if (result==1){
+        if (result == 1) {
             nextButton.setDisable(true);
-            gameShowHost.setText("Gratulację " + game.getPlayerName()+"\n" +
-                    "Wygrałeś: "+game.getMoneyToDivide()+"\n"+
+            gameShowHost.setText("Gratulację " + game.getPlayerName() + "\n" +
+                    "Wygrałeś: " + game.getMoneyToDivide() + "\n" +
                     "Kliknij \"Wyjdź\" aby powrócić do menu");
-        }
-        else if (result==-1){
+        } else if (result == -1) {
             nextButton.setDisable(true);
-            gameShowHost.setText("Wielka szkoda " + game.getPlayerName()+"\n" +
-                    "Może następnym razem ci się uda \n"+
+            gameShowHost.setText("Wielka szkoda " + game.getPlayerName() + "\n" +
+                    "Może następnym razem ci się uda \n" +
                     "Kliknij \"Wyjdź\" aby powrócić do menu");
-        }
-        else {
+        } else {
             nextButton.setDisable(false);
-            gameShowHost.setText("Zostało ci : "+game.getMoneyToDivide()+"\n"+
+            gameShowHost.setText("Zostało ci : " + game.getMoneyToDivide() + "\n" +
                     "Kliknij \"Dalej\" aby otrzymać kolejne pytanie");
         }
 
@@ -100,6 +98,7 @@ public class GameController {
         screen3.setText("0");
         screen4.setText("0");
     }
+
     private void changeOptionValue(ActionEvent event, boolean isPlusButton) {
         Button button = (Button) event.getSource();
         ObservableList<Node> children = button.getParent().getChildrenUnmodifiable();
@@ -120,15 +119,15 @@ public class GameController {
         moneyToDivideLabel.setText(giveLcdText(game.getMoneyToDivide()));
         label.setText(giveLcdText(value));
 
-        if (game.getMoneyToDivide() == 0&&!game.isActiveQuestionNull())
+        if (game.getMoneyToDivide() == 0 && !game.isActiveQuestionNull())
             applyButton.setDisable(false);
         else applyButton.setDisable(true);
 
     }
 
-    private String giveLcdText(int number){
-        StringBuilder temp= new StringBuilder(String.valueOf(number));
-        while (temp.length()<7){
+    private String giveLcdText(int number) {
+        StringBuilder temp = new StringBuilder(String.valueOf(number));
+        while (temp.length() < 7) {
             temp.insert(0, "0");
         }
         return temp.toString();
