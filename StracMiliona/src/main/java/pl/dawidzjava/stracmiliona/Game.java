@@ -10,7 +10,7 @@ public class Game {
     private int thirdDoor=0;
     private int fourthDoor=0;
     
-    private int packageSize=25_000;
+    private int packageSize=100_000;
     private List<Question>questionsPool;
     private int leftQuestions;
 

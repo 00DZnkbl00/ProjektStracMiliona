@@ -117,13 +117,21 @@ public class GameController {
 
         if (value == -1) return;
 
-        moneyToDivideLabel.setText(String.valueOf(game.getMoneyToDivide()));
-        label.setText(String.valueOf(value));
+        moneyToDivideLabel.setText(giveLcdText(game.getMoneyToDivide()));
+        label.setText(giveLcdText(value));
 
         if (game.getMoneyToDivide() == 0&&!game.isActiveQuestionNull())
             applyButton.setDisable(false);
         else applyButton.setDisable(true);
 
+    }
+
+    private String giveLcdText(int number){
+        StringBuilder temp= new StringBuilder(String.valueOf(number));
+        while (temp.length()<7){
+            temp.insert(0, "0");
+        }
+        return temp.toString();
     }
 
 

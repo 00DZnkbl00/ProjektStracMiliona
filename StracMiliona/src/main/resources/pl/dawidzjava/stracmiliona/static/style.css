@@ -1,0 +1,59 @@
+.root {
+    -fx-background-color: #A5B452;
+}
+
+.titleLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-padding: 10px;
+    -fx-background-radius: 10px;
+}
+
+.bubbleLabel {
+
+    -fx-background-color: rgba(0, 0, 0, 0.15);
+    -fx-padding: 10px;
+    -fx-background-radius: 15px;
+}
+
+.board{
+    -fx-background-color: #5C573E;
+}
+.lcdLabel {
+    -fx-background-color: #9BA7C0;
+    -fx-padding: 15px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #6d7585;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px; /* Dodano zaokrąglenie krawędzi */
+    -fx-font-size: 16px;
+    -fx-text-fill: #000000;
+    -fx-font-family: "Courier New", monospace;
+    -fx-effect: innershadow(gaussian, #6d7585, 2, 0, 0, 0);
+}
+
+.smallButton {
+    -fx-background-color: #A5B452;
+    -fx-padding: 5px 10px;
+    -fx-font-size: 12px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
+}
+
+.smallButton:hover {
+    -fx-background-color: #C8D96F;
+}
+
+.normalButton {
+    -fx-background-color: #800080;
+    -fx-padding: 10px 20px;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
+}
+
+.normalButton:hover {
+    -fx-background-color: #6A5ACD;
+}
