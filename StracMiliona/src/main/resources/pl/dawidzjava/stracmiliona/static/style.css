@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: #A5B452;
+    -fx-background-color: #109648;
 }
 
 .titleLabel {
@@ -12,29 +12,29 @@
 
 .bubbleLabel {
 
-    -fx-background-color: rgba(0, 0, 0, 0.15);
+    -fx-background-color: rgba(138,243,255, 0.2);
     -fx-padding: 10px;
     -fx-background-radius: 15px;
 }
 
 .board{
-    -fx-background-color: #5C573E;
+    -fx-background-color: #484349;
 }
 .lcdLabel {
-    -fx-background-color: #9BA7C0;
+    -fx-background-color: #a4a0a0;
     -fx-padding: 15px;
     -fx-background-radius: 10px;
-    -fx-border-color: #6d7585;
+    -fx-border-color: #61a7b2;
     -fx-border-width: 2px;
     -fx-border-radius: 10px; /* Dodano zaokrąglenie krawędzi */
     -fx-font-size: 16px;
     -fx-text-fill: #000000;
     -fx-font-family: "Courier New", monospace;
-    -fx-effect: innershadow(gaussian, #6d7585, 2, 0, 0, 0);
+    -fx-effect: innershadow(gaussian, #61a7b2, 2, 0, 0, 0);
 }
 
 .smallButton {
-    -fx-background-color: #A5B452;
+    -fx-background-color: #61a7b2;
     -fx-padding: 5px 10px;
     -fx-font-size: 12px;
     -fx-background-radius: 8px;
@@ -42,11 +42,11 @@
 }
 
 .smallButton:hover {
-    -fx-background-color: #C8D96F;
+    -fx-background-color: #8AF3FF;
 }
 
 .normalButton {
-    -fx-background-color: #800080;
+    -fx-background-color: #18A999;
     -fx-padding: 10px 20px;
     -fx-font-size: 14px;
     -fx-text-fill: white;
@@ -55,5 +55,5 @@
 }
 
 .normalButton:hover {
-    -fx-background-color: #6A5ACD;
+    -fx-background-color: #61a7b2;
 }
