@@ -93,10 +93,10 @@ public class GameController {
         moneyToDivideLabel.setText(String.valueOf(game.getMoneyToDivide()));
         applyButton.setDisable(true);
 
-        screen1.setText("0");
-        screen2.setText("0");
-        screen3.setText("0");
-        screen4.setText("0");
+        screen1.setText(giveLcdText(0));
+        screen2.setText(giveLcdText(0));
+        screen3.setText(giveLcdText(0));
+        screen4.setText(giveLcdText(0));
     }
 
     private void changeOptionValue(ActionEvent event, boolean isPlusButton) {
