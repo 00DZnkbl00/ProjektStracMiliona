@@ -139,7 +139,6 @@ public class GameController {
         Parent root = loader.load();
 
         HelloController helloController = loader.getController();
-        helloController.setWelcomeText("UDAŁO SIĘ");
 
         Stage stage = new Stage();
         stage.setTitle("Strać Miliona !");

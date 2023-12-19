@@ -3,11 +3,13 @@ package pl.dawidzjava.stracmiliona;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.Scanner;
 
 public class SerializeQuestion {
     private static int x = 0;
 
     public static void main(String[] args) {
+
         Question question = new Question("Test?", "NO", "NO", "YES", "NO", 0, 3);
         addQuestion(question);
         addQuestion(new Question("Test!", "YES", "NO", "NO", "NO", 0, 1));

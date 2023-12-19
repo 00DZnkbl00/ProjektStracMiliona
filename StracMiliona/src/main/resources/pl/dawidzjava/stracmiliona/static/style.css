@@ -58,3 +58,24 @@
 .normalButton:hover {
     -fx-background-color: #61a7b2;
 }
+
+.inputText {
+    -fx-control-inner-background: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-padding: 5px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #61a7b2;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-font-family: "Courier New", monospace;
+    -fx-effect: innershadow(gaussian, #61a7b2, 2, 0, 0, 0);
+}
+
+.checkBox, .radioButton {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+}
+
+.checkBox:selected, .radioButton:selected {
+    -fx-mark-highlight-color: #61a7b2;
+}
