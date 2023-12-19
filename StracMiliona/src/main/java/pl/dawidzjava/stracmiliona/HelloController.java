@@ -28,8 +28,7 @@ public class HelloController {
     }
 
     public boolean loadNewScene() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
-        Parent root = loader.load();
+
 
         DeserializeQuestion deserializeQuestion = new DeserializeQuestion("src/main/resources/questions/");
         List<Question> questions = deserializeQuestion.getQuestions();
@@ -45,16 +44,12 @@ public class HelloController {
         Game game = new Game(questions, 4, "Tadek");
         if (4 > questions.size()) return false;
 
-        GameController gameController = loader.getController();
-        gameController.setGameProperties(game);
+        SceneLoader.loadGameScene(this,game);
 
-        Stage stage = new Stage();
-        stage.setTitle("Strać Miliona !");
-        stage.setResizable(false);
-        stage.setScene(new Scene(root));
-        stage.show();
         return true;
     }
+
+
 
 
 }

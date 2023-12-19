@@ -43,7 +43,7 @@ public class GameController {
 
     @FXML
     protected void onTestButtonAction(ActionEvent event) throws IOException {
-        loadNewScene();
+        SceneLoader.loadHelloScene(this);
         ((Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow()).close();
     }
 
@@ -132,21 +132,6 @@ public class GameController {
         }
         return temp.toString();
     }
-
-
-    private void loadNewScene() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-        Parent root = loader.load();
-
-        HelloController helloController = loader.getController();
-
-        Stage stage = new Stage();
-        stage.setTitle("Strać Miliona !");
-        stage.setResizable(false);
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
 
     protected void setGameProperties(Game game) {
         gameShowHost.setText(game.getPlayerName() + " witaj w naszej grze!!!!\n" +

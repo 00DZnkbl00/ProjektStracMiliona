@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-spacing: 10px" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.dawidzjava.stracmiliona.AddQuestion">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-spacing: 10px" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.dawidzjava.stracmiliona.QuestionAddController">
     <Label styleClass="titleLabel" text="Dodaj pytanie" textAlignment="CENTER" style="-fx-padding: 10px" />
 
     <HBox alignment="CENTER" >
