@@ -50,6 +50,8 @@ public class HelloController {
     }
 
 
-
-
+    public void onAddQuestionButtonClick(ActionEvent event) throws IOException {
+        SceneLoader.loadAddQuestionScene(this);
+        ((Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow()).close();
+    }
 }

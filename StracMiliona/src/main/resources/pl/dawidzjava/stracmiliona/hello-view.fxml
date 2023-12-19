@@ -13,4 +13,5 @@
 
     <Label fx:id="welcomeText" styleClass="titleLabel" text="Strać miliona!"/>
     <Button onAction="#onHelloButtonClick" text="Start" styleClass="normalButton"/>
+    <Button onAction="#onAddQuestionButtonClick" text="Add Question" styleClass="normalButton"/>
 </VBox>

@@ -4,34 +4,34 @@
 <?import javafx.scene.layout.*?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-spacing: 10px" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.dawidzjava.stracmiliona.QuestionAddController">
-    <Label styleClass="titleLabel" text="Dodaj pytanie" textAlignment="CENTER" style="-fx-padding: 10px" />
+    <Label style="-fx-padding: 10px" styleClass="titleLabel" text="Dodaj pytanie" textAlignment="CENTER" fx:id="titleFiled" />
 
-    <HBox alignment="CENTER" >
-        <TextField prefWidth="400.0" styleClass="inputText" />
+    <HBox alignment="CENTER">
+        <TextField fx:id="questionFiled" prefWidth="400.0" styleClass="inputText" />
     </HBox>
 
     <HBox alignment="CENTER">
-        <RadioButton mnemonicParsing="false" text="RadioButton" styleClass="radioButton" />
-        <TextField prefWidth="200.0" styleClass="inputText" />
+        <RadioButton mnemonicParsing="false" styleClass="radioButton" text="RadioButton" fx:id="answerAButton" onAction="#onRadioButton"/>
+        <TextField fx:id="answerAFiled" prefWidth="200.0" styleClass="inputText" />
     </HBox>
 
     <HBox alignment="CENTER">
-        <RadioButton mnemonicParsing="false" text="RadioButton" styleClass="radioButton" />
-        <TextField prefWidth="205.0" styleClass="inputText" />
+        <RadioButton mnemonicParsing="false" styleClass="radioButton" text="RadioButton" fx:id="answerBButton" onAction="#onRadioButton"/>
+        <TextField fx:id="answerBFiled" prefWidth="205.0" styleClass="inputText" />
     </HBox>
 
     <HBox alignment="CENTER">
-        <RadioButton mnemonicParsing="false" text="RadioButton" styleClass="radioButton" />
-        <TextField prefWidth="205.0" styleClass="inputText" />
+        <RadioButton mnemonicParsing="false" styleClass="radioButton" text="RadioButton" fx:id="answerCButton" onAction="#onRadioButton"/>
+        <TextField fx:id="answerCFiled" prefWidth="205.0" styleClass="inputText" />
     </HBox>
 
     <HBox alignment="CENTER">
-        <RadioButton mnemonicParsing="false" text="RadioButton" styleClass="radioButton" />
-        <TextField prefWidth="205.0" styleClass="inputText" />
+        <RadioButton mnemonicParsing="false" styleClass="radioButton" text="RadioButton" fx:id="answerDButton" onAction="#onRadioButton"/>
+        <TextField fx:id="answerDFiled" prefWidth="205.0" styleClass="inputText" />
     </HBox>
 
-    <HBox alignment="CENTER" spacing='20'>
-        <Button styleClass="normalButton" text="Dodaj" />
-        <Button styleClass="normalButton" text="Powrót" />
+    <HBox alignment="CENTER" spacing="20">
+        <Button onAction="#onAddButton" styleClass="normalButton" text="Dodaj" />
+        <Button onAction="#onBackButton" styleClass="normalButton" text="Powrót" />
     </HBox>
 </VBox>
