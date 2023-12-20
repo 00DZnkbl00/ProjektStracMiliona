@@ -5,15 +5,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DeserializeQuestion {
 
     private String folderName;
+    private boolean debugMode;
 
-    public DeserializeQuestion(String folderName) {
+    public DeserializeQuestion(String folderName, boolean debugMode) {
         this.folderName = folderName;
+        this.debugMode = debugMode;
     }
 
     public List<Question> getQuestions() {
@@ -43,7 +44,9 @@ public class DeserializeQuestion {
             in.close();
             fileIn.close();
         } catch (IOException | ClassNotFoundException i) {
-            System.out.println("Nie wczytano pliku: " + fileName + "\npowód: " + i.getMessage());
+            if(debugMode){
+                System.out.println("Nie wczytano pliku: " + fileName + "\npowód: " + i.getMessage());
+            }
             return null;
         }
         return question;

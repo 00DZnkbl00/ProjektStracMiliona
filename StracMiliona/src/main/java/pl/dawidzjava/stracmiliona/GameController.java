@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -93,6 +94,8 @@ public class GameController {
         moneyToDivideLabel.setText(String.valueOf(game.getMoneyToDivide()));
         applyButton.setDisable(true);
 
+
+        game.resetScreens();
         screen1.setText(giveLcdText(0));
         screen2.setText(giveLcdText(0));
         screen3.setText(giveLcdText(0));

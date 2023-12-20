@@ -9,6 +9,7 @@ public class Game {
     private int secondDoor = 0;
     private int thirdDoor = 0;
     private int fourthDoor = 0;
+    private boolean debugMode;
 
     private int packageSize = 100_000;
     private List<Question> questionsPool;
@@ -19,7 +20,8 @@ public class Game {
 
     private String playerName;
 
-    public Game(List<Question> questionsPool, int questionsNumber, String playerName) {
+    public Game(boolean debugMode, List<Question> questionsPool, int questionsNumber, String playerName) {
+        this.debugMode = debugMode;
         this.questionsPool = questionsPool;
         this.leftQuestions = questionsNumber;
         this.playerName = playerName;
@@ -66,14 +68,23 @@ public class Game {
         return false;
     }
 
+    public void resetScreens(){
+        firstDoor=0;
+        secondDoor=0;
+        thirdDoor=0;
+        fourthDoor=0;
+    }
+
     public void loadNewQuestion() {
         Random random = new Random();
         int questionNum = random.nextInt(questionsPool.size());
         activeQuestion = questionsPool.get(questionNum);
         questionsPool.remove(activeQuestion);
         leftQuestions--;
-        System.out.println(questionNum);
-        System.out.println(activeQuestion);
+        if(debugMode){
+            System.out.println(questionNum);
+            System.out.println(activeQuestion);
+        }
     }
 
     public String getPlayerName() {
@@ -101,6 +112,7 @@ public class Game {
         if (correct != 3) thirdDoor = 0;
         if (correct != 4) fourthDoor = 0;
         moneyToDivide = firstDoor + secondDoor + thirdDoor + fourthDoor;
+        activeQuestion=null;
         if (moneyToDivide <= 0) return -1;
         if (leftQuestions <= 0) return 1;
         else return 0;
