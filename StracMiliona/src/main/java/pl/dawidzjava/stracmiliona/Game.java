@@ -32,6 +32,7 @@ public class Game {
 
         if (moneyToDivide - valueAdded < 0 || moneyToDivide - valueAdded > 1_000_000) return -1;
         if (!isOneDoorEmpty(doorNumber)) return -1;
+        if (isActiveQuestionNull()) return -1;
 
         if (doorNumber == 1) {
             if (firstDoor + valueAdded < 0) return -1;

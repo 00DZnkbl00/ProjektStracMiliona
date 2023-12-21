@@ -15,7 +15,7 @@
             <Button fx:id="nextButton" layoutX="124.0" layoutY="80.0" mnemonicParsing="false"
                     onAction="#onNextButtonClick" styleClass="normalButton" text="Dalej"/>
         </VBox>
-        <Label fx:id="gameShowHost" layoutX="26.0" layoutY="137.0" prefHeight="200.0" prefWidth="200.0"
+        <Label fx:id="gameShowHost" layoutX="26.0" layoutY="137.0" prefHeight="200.0" prefWidth="300.0"
                styleClass="bubbleLabel" text="Label" textAlignment="CENTER" wrapText="true">
             <font>
                 <Font size="18.0"/>
@@ -27,7 +27,7 @@
     </HBox>
     <VBox alignment="CENTER" prefHeight="350.0" prefWidth="900.0" styleClass="board">
         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="900.0">
-            <Label styleClass="lcdLabel" text="Label"/>
+            <Label styleClass="lcdLabel" text="Kliknij dalej aby otrzymać pytanie" fx:id="questionScreen"/>
         </HBox>
         <AnchorPane maxHeight="180.0" prefHeight="180.0" prefWidth="900.0">
             <VBox alignment="CENTER" layoutX="50.0" layoutY="30.0" styleClass="lcdLabel">

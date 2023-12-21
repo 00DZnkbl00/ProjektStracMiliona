@@ -39,6 +39,8 @@ public class GameController {
     public Button applyButton;
     @FXML
     public Button nextButton;
+    @FXML
+    public Label questionScreen;
 
     private Game game;
 
@@ -62,7 +64,8 @@ public class GameController {
     public void onNextButtonClick() {
         game.loadNewQuestion();
         String[] questions = game.getActiveQuestionList();
-        gameShowHost.setText("Twoje pytanie: \n" + game.getActiveQuestionString());
+        gameShowHost.setText( "Oto twoje pytanie.\nPodziel swoje pieniądze na opowiedzi, używając przycisków + i -. Możesz rozłożyć kwotę na maksymalnie 3 odpowiedzi. Po podziale naciśnij przycisk zatwierdź.");
+        questionScreen.setText(game.getActiveQuestionString());
         anws1.setText(questions[0]);
         anws2.setText(questions[1]);
         anws3.setText(questions[2]);
@@ -77,16 +80,19 @@ public class GameController {
 
         if (result == 1) {
             nextButton.setDisable(true);
+            questionScreen.setText("GRATULACJĘ");
             gameShowHost.setText("Gratulację " + game.getPlayerName() + "\n" +
                     "Wygrałeś: " + game.getMoneyToDivide() + "\n" +
                     "Kliknij \"Wyjdź\" aby powrócić do menu");
         } else if (result == -1) {
             nextButton.setDisable(true);
+            questionScreen.setText("Dziękujemy za grę");
             gameShowHost.setText("Wielka szkoda " + game.getPlayerName() + "\n" +
                     "Może następnym razem ci się uda \n" +
                     "Kliknij \"Wyjdź\" aby powrócić do menu");
         } else {
             nextButton.setDisable(false);
+            questionScreen.setText("Kliknij \"Dalej\" aby otrzymać kolejne pytanie");
             gameShowHost.setText("Zostało ci : " + game.getMoneyToDivide() + "\n" +
                     "Kliknij \"Dalej\" aby otrzymać kolejne pytanie");
         }
