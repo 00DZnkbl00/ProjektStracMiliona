@@ -3,15 +3,19 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="240.0" prefWidth="320.0" spacing="20.0" stylesheets="@static/style.css"
-      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="pl.dawidzjava.stracmiliona.HelloController" styleClass="root">
+<VBox alignment="CENTER" prefHeight="240.0" prefWidth="320.0" spacing="20.0" styleClass="root" stylesheets="@static/style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.dawidzjava.stracmiliona.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label fx:id="welcomeText" styleClass="titleLabel" text="Strać miliona!"/>
-    <Button onAction="#onHelloButtonClick" text="Start" styleClass="normalButton"/>
-    <Button onAction="#onAddQuestionButtonClick" text="Add Question" styleClass="normalButton"/>
+    <Label styleClass="titleLabel" text="Strać miliona!" />
+   <Label fx:id="errorMessage"  textAlignment="CENTER" textFill="RED">
+      <font>
+         <Font size="12.0" />
+      </font></Label>
+   <TextField fx:id="playerNameField"  alignment="CENTER" promptText="Twoje Imię" />
+    <Button onAction="#onStartGameButtonClick" styleClass="normalButton" text="Start" />
+    <Button onAction="#onAddQuestionButtonClick" styleClass="normalButton" text="Dodaj Pytanie" />
 </VBox>

@@ -3,13 +3,9 @@ package pl.dawidzjava.stracmiliona;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -42,7 +38,7 @@ public class GameController {
     @FXML
     public Label questionScreen;
 
-    private Game game;
+    private GameEngine gameEngine;
 
     @FXML
     protected void onTestButtonAction(ActionEvent event) throws IOException {
@@ -62,10 +58,10 @@ public class GameController {
 
     @FXML
     public void onNextButtonClick() {
-        game.loadNewQuestion();
-        String[] questions = game.getActiveQuestionList();
+        gameEngine.loadNewQuestion();
+        String[] questions = gameEngine.getActiveQuestionList();
         gameShowHost.setText( "Oto twoje pytanie.\nPodziel swoje pieniądze na opowiedzi, używając przycisków + i -. Możesz rozłożyć kwotę na maksymalnie 3 odpowiedzi. Po podziale naciśnij przycisk zatwierdź.");
-        questionScreen.setText(game.getActiveQuestionString());
+        questionScreen.setText(gameEngine.getActiveQuestionString());
         anws1.setText(questions[0]);
         anws2.setText(questions[1]);
         anws3.setText(questions[2]);
@@ -75,33 +71,33 @@ public class GameController {
 
     @FXML
     public void onApplyButtonClick() {
-        if (game.isActiveQuestionNull()) return;
-        int result = game.checkAnswer();
+        if (gameEngine.isActiveQuestionNull()) return;
+        int result = gameEngine.checkAnswer();
 
         if (result == 1) {
             nextButton.setDisable(true);
             questionScreen.setText("GRATULACJĘ");
-            gameShowHost.setText("Gratulację " + game.getPlayerName() + "\n" +
-                    "Wygrałeś: " + game.getMoneyToDivide() + "\n" +
+            gameShowHost.setText("Gratulację " + gameEngine.getPlayerName() + "\n" +
+                    "Wygrałeś: " + gameEngine.getMoneyToDivide() + "\n" +
                     "Kliknij \"Wyjdź\" aby powrócić do menu");
         } else if (result == -1) {
             nextButton.setDisable(true);
             questionScreen.setText("Dziękujemy za grę");
-            gameShowHost.setText("Wielka szkoda " + game.getPlayerName() + "\n" +
+            gameShowHost.setText("Wielka szkoda " + gameEngine.getPlayerName() + "\n" +
                     "Może następnym razem ci się uda \n" +
                     "Kliknij \"Wyjdź\" aby powrócić do menu");
         } else {
             nextButton.setDisable(false);
             questionScreen.setText("Kliknij \"Dalej\" aby otrzymać kolejne pytanie");
-            gameShowHost.setText("Zostało ci : " + game.getMoneyToDivide() + "\n" +
+            gameShowHost.setText("Zostało ci : " + gameEngine.getMoneyToDivide() + "\n" +
                     "Kliknij \"Dalej\" aby otrzymać kolejne pytanie");
         }
 
-        moneyToDivideLabel.setText(String.valueOf(game.getMoneyToDivide()));
+        moneyToDivideLabel.setText(String.valueOf(gameEngine.getMoneyToDivide()));
         applyButton.setDisable(true);
 
 
-        game.resetScreens();
+        gameEngine.resetScreens();
         screen1.setText(giveLcdText(0));
         screen2.setText(giveLcdText(0));
         screen3.setText(giveLcdText(0));
@@ -114,21 +110,21 @@ public class GameController {
         Label label = (Label) children.get(1);
         int value;
         if ("screen1".equals(label.getId()))
-            value = game.changeDoorValue(1, isPlusButton);
+            value = gameEngine.changeDoorValue(1, isPlusButton);
         else if ("screen2".equals(label.getId()))
-            value = game.changeDoorValue(2, isPlusButton);
+            value = gameEngine.changeDoorValue(2, isPlusButton);
         else if ("screen3".equals(label.getId()))
-            value = game.changeDoorValue(3, isPlusButton);
+            value = gameEngine.changeDoorValue(3, isPlusButton);
         else if ("screen4".equals(label.getId()))
-            value = game.changeDoorValue(4, isPlusButton);
+            value = gameEngine.changeDoorValue(4, isPlusButton);
         else value = -1;
 
         if (value == -1) return;
 
-        moneyToDivideLabel.setText(giveLcdText(game.getMoneyToDivide()));
+        moneyToDivideLabel.setText(giveLcdText(gameEngine.getMoneyToDivide()));
         label.setText(giveLcdText(value));
 
-        if (game.getMoneyToDivide() == 0 && !game.isActiveQuestionNull())
+        if (gameEngine.getMoneyToDivide() == 0 && !gameEngine.isActiveQuestionNull())
             applyButton.setDisable(false);
         else applyButton.setDisable(true);
 
@@ -142,9 +138,9 @@ public class GameController {
         return temp.toString();
     }
 
-    protected void setGameProperties(Game game) {
-        gameShowHost.setText(game.getPlayerName() + " witaj w naszej grze!!!!\n" +
+    protected void setGameProperties(GameEngine gameEngine) {
+        gameShowHost.setText(gameEngine.getPlayerName() + " witaj w naszej grze!!!!\n" +
                 "Kliknij \"Dalej\" aby otrzymać pierwsze pytanie");
-        this.game = game;
+        this.gameEngine = gameEngine;
     }
 }

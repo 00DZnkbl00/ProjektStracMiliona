@@ -13,7 +13,6 @@ public abstract class SceneLoader {
         FXMLLoader loader = new FXMLLoader(object.getClass().getResource("hello-view.fxml"));
         Parent root = loader.load();
 
-        HelloController helloController = loader.getController();
 
         Stage stage = new Stage();
         stage.setTitle("Strać Miliona !");
@@ -26,8 +25,6 @@ public abstract class SceneLoader {
         FXMLLoader loader = new FXMLLoader(object.getClass().getResource("add-question.fxml"));
         Parent root = loader.load();
 
-        QuestionAddController helloController = loader.getController();
-
         Stage stage = new Stage();
         stage.setTitle("Strać Miliona !");
         stage.setResizable(false);
@@ -35,11 +32,11 @@ public abstract class SceneLoader {
         stage.show();
     }
 
-    public static void loadGameScene(Object object,Game game) throws IOException {
+    public static void loadGameScene(Object object, GameEngine gameEngine) throws IOException {
         FXMLLoader loader = new FXMLLoader(object.getClass().getResource("game-view.fxml"));
         Parent root = loader.load();
         GameController gameController = loader.getController();
-        gameController.setGameProperties(game);
+        gameController.setGameProperties(gameEngine);
 
         Stage stage = new Stage();
         stage.setTitle("Strać Miliona !");

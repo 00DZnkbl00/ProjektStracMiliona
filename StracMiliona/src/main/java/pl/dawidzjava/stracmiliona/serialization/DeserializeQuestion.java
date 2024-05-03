@@ -1,4 +1,6 @@
-package pl.dawidzjava.stracmiliona;
+package pl.dawidzjava.stracmiliona.serialization;
+
+import pl.dawidzjava.stracmiliona.Question;
 
 import java.io.File;
 import java.io.FileInputStream;

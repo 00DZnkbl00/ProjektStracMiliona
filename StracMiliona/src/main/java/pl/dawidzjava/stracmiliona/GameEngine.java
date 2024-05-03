@@ -3,7 +3,7 @@ package pl.dawidzjava.stracmiliona;
 import java.util.List;
 import java.util.Random;
 
-public class Game {
+public class GameEngine {
     private int moneyToDivide = 1_000_000;
     private int firstDoor = 0;
     private int secondDoor = 0;
@@ -20,7 +20,7 @@ public class Game {
 
     private String playerName;
 
-    public Game(boolean debugMode, List<Question> questionsPool, int questionsNumber, String playerName) {
+    public GameEngine(boolean debugMode, List<Question> questionsPool, int questionsNumber, String playerName) {
         this.debugMode = debugMode;
         this.questionsPool = questionsPool;
         this.leftQuestions = questionsNumber;

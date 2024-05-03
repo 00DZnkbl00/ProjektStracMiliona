@@ -1,4 +1,6 @@
-package pl.dawidzjava.stracmiliona;
+package pl.dawidzjava.stracmiliona.serialization;
+
+import pl.dawidzjava.stracmiliona.Question;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -10,16 +12,6 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class SerializeQuestion {
-
-
-//    public static void main(String[] args) {
-//
-//        addQuestion(new Question("Który kraj leży na Półwyspie Apenińskim?"
-//                , "Francja", "Włochy", "Hiszpania"
-//                , "Grecja", 0, 2));
-//
-//    }
-
 
 
     private static boolean isNameEmpty(String folderName,String filename) {
